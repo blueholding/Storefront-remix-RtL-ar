@@ -1,0 +1,88 @@
+@tailwind base;
+/* @tailwind components; */
+@tailwind utilities;
+
+@layer base {
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  /* Arabic font support */
+  [lang="ar"],
+  [dir="rtl"] {
+    font-family: 'Cairo', 'Tajawal', 'Noto Sans Arabic', ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .shadow-divider {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 9px -10px inset;
+  }
+
+  .mirror-x {
+    --tw-scale-x: -1;
+  }
+
+  .text-inherit {
+    color: inherit;
+  }
+}
+
+/* RTL overrides for Arabic */
+[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]),
+[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]),
+[dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]),
+[dir="rtl"] .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+[dir="rtl"] .gap-x-2,
+[dir="rtl"] .gap-x-4,
+[dir="rtl"] .gap-x-6 {
+  direction: rtl;
+}
+
+/* Flip chevron/arrow icons for RTL */
+[dir="rtl"] svg.chevron-right,
+[dir="rtl"] .icon-arrow {
+  transform: scaleX(-1);
+}
+
+/* Text alignment defaults for RTL */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* Margin & padding logical flipping for RTL */
+[dir="rtl"] .ml-auto { margin-left: unset; margin-right: auto; }
+[dir="rtl"] .mr-auto { margin-right: unset; margin-left: auto; }
+[dir="rtl"] .pl-4 { padding-left: unset; padding-right: 1rem; }
+[dir="rtl"] .pr-4 { padding-right: unset; padding-left: 1rem; }
+[dir="rtl"] .pl-6 { padding-left: unset; padding-right: 1.5rem; }
+[dir="rtl"] .pr-6 { padding-right: unset; padding-left: 1.5rem; }
+[dir="rtl"] .pl-8 { padding-left: unset; padding-right: 2rem; }
+[dir="rtl"] .pr-8 { padding-right: unset; padding-left: 2rem; }
+[dir="rtl"] .pl-10 { padding-left: unset; padding-right: 2.5rem; }
+[dir="rtl"] .pr-10 { padding-right: unset; padding-left: 2.5rem; }
+[dir="rtl"] .left-0 { left: unset; right: 0; }
+[dir="rtl"] .right-0 { right: unset; left: 0; }
+[dir="rtl"] .left-4 { left: unset; right: 1rem; }
+[dir="rtl"] .right-4 { right: unset; left: 1rem; }
+[dir="rtl"] .border-l { border-left: unset; border-right-width: 1px; }
+[dir="rtl"] .border-r { border-right: unset; border-left-width: 1px; }
+[dir="rtl"] .rounded-l { border-radius: 0 0.25rem 0.25rem 0; }
+[dir="rtl"] .rounded-r { border-radius: 0.25rem 0 0 0.25rem; }
+
